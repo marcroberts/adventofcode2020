@@ -1,6 +1,5 @@
 use std::env;
 use std::io;
-use std::io::BufReader;
 use std::io::BufRead;
 use std::fs::File;
 
@@ -14,7 +13,7 @@ fn main() {
 	let reader = io::BufReader::new(file);
 
 	// load the values
-	for (index, line) in reader.lines().enumerate() {
+	for line in reader.lines() {
 		let number: u32 = line.unwrap().trim().parse().unwrap();
 		values.push(number);
 	}
